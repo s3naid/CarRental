@@ -1,0 +1,27 @@
+[
+    {
+        "model": "accounts.customuser",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$GtGAZH3in0Yz$g6AKqP1hcI6UNuY+ZBPCNLl9oAXc+9OV0pMsWsoB1vM=",
+            "last_login": null,
+            "phone": "061365535",
+            "email": "user@localhost.com",
+            "first_name": "user",
+            "last_name": "user",
+            "is_staff": false
+        }
+    },
+   {"model": "accounts.customuser",
+       "pk": 2,
+       "fields": {
+           "password": "pbkdf2_sha256$180000$ZMEEE9a0Z49A$dkZRf3uBF+cKLrc//IJSxK2YBf4FTEHevs4J1CJcI70=",
+           "last_login": null,
+           "phone": "654545498",
+           "email": "admin@localhost.com",
+           "first_name": "admin",
+           "last_name": "admin",
+           "is_staff": true
+       }
+   }
+]
