@@ -1,5 +1,5 @@
 from rest_framework import serializers
-
+from accounts.serializers import UserCreateSerializer
 from .models import Car,Booking,Profile
 
 class CarSerializer(serializers.ModelSerializer):
@@ -14,6 +14,7 @@ class BookingSerializer(serializers.ModelSerializer):
         read_only_fields = ['user']
 
 class ProfileSerializer(serializers.ModelSerializer):
+    user=UserCreateSerializer()
     class Meta:
         model=Profile
         read_only_fields = ['user', 'bonus']

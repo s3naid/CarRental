@@ -5,6 +5,7 @@ from django.contrib.postgres.fields import (
     RangeOperators,
 )
 from django.db import models
+from accounts.models import CustomUser
 
 # Create your models here.
 
@@ -15,18 +16,9 @@ class Car(models.Model):
     driver=models.BooleanField(default=False)
 
 
-class Profile(CustomUser):
+class Profile(models.Model):
     user=models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    bonus=models.DecimalField(decimal_places=2)
-
-    @receiver(post_save, sender=CustomUser)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
-
-    @receiver(post_save, sender=CustomUser)
-    def save_user_profile(sender, instance, **kwargs):
-        instance.profile.save()
+    bonus=models.DecimalField(max_digits=10, decimal_places=2)
 
 class Booking(models.Model):
     car=models.ForeignKey(Car, on_delete=models.CASCADE, related_name='cars')
