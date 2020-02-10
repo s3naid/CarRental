@@ -18,14 +18,20 @@ class CarViewSet(viewsets.ModelViewSet):
         return super(self.__class__, self).get_permissions()
 
 class ProfileViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsOwner]
+    permission_classes = []
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
 
     def get_permissions(self):
-        if self.action in ['create']:
+        if self.action =='create':
             self.permission_classes = [AllowAny]
-        return super(self.__class__, self).get_permissions()
+        elif self.action =='list':
+                self.permission_classes = [IsAdminUser]
+        elif self.action in ['retrive', 'update']:
+                self.permission_classes = [IsOwner]
+                print('owner')
+        return [permission() for permission in self.permission_classes]
+
 
 class BookingViewSet(viewsets.ModelViewSet):
     permission_classes = [IsOwner]
