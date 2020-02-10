@@ -9,6 +9,7 @@ class CustomUser(AbstractBaseUser):
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
 
+
     REQUIRED_FIELDS = ['first_name', 'last_name', 'phone']
     is_staff = models.BooleanField(default=False)
     objects = CustomUserManager()

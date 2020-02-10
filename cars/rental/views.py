@@ -27,10 +27,6 @@ class ProfileViewSet(viewsets.ModelViewSet):
             self.permission_classes = [AllowAny]
         return super(self.__class__, self).get_permissions()
 
-
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
-
 class BookingViewSet(viewsets.ModelViewSet):
     permission_classes = [IsOwner]
     serializer_class = BookingSerializer
