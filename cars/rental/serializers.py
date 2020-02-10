@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from accounts.serializers import UserCreateSerializer
 from .models import Car,Booking,Profile
+from accounts.models import CustomUser
 
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,4 +18,11 @@ class ProfileSerializer(serializers.ModelSerializer):
     user=UserCreateSerializer()
     class Meta:
         model=Profile
+        fields='__all__'
         read_only_fields = ['user', 'bonus']
+
+    def create(self, validated_data):
+        user_data=validated_data.pop('user')
+        user=CustomUser.objects.create(**user_data)
+        instance=Profile.objects.create(**validated_data)
+        return instance

@@ -10,7 +10,10 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
-
 @receiver(post_save, sender=CustomUser)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+
+
+#NAPOMENA: Mora se dodati dio u apps.py i __init__.py da bi se aktivirali signali

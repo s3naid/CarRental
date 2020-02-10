@@ -6,4 +6,5 @@ class RentalConfig(AppConfig):
 
 
     def ready(self):
+        print('signals')
         import rental.signals

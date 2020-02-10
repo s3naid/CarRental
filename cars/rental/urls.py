@@ -1,6 +1,8 @@
-from django.urls import include, path
+from django.urls import path, include
+from rest_framework import routers
 from .views import ProfileViewSet
 
-urlpatterns = [
-    path(r'profile/', iProfileViewSet),
-]
+router = routers.DefaultRouter()
+router.register(r'profile', ProfileViewSet)
+
+urlpatterns = router.urls
