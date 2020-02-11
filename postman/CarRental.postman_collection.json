@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5df1dd11-ec0e-44f4-9974-5236daabef41",
+		"_postman_id": "447d1065-82ec-4daa-8055-f5720f17212b",
 		"name": "CarRental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"user\":{\r\n\t    \"password\": \"sifrasifra\",\r\n\t    \"phone\": 343424252,\r\n\t    \"email\": \"user2@localhost.com\",\r\n\t    \"first_name\": \"user\",\r\n\t    \"last_name\": \"userlast\"\r\n\t}\r\n\t\r\n}",
+					"raw": "{\r\n\t\"user\":{\r\n\t    \"password\": \"sifrasifra\",\r\n\t    \"phone\": 343424252,\r\n\t    \"email\": \"user1@localhost.com\",\r\n\t    \"first_name\": \"user\",\r\n\t    \"last_name\": \"user\"\r\n\t}\r\n\t\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -123,11 +123,16 @@
 						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 06cbc39176a1c2299f26c5457e9f84c219a89db0",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"user\":{\r\n\t    \"password\": \"sifrasifra\",\r\n\t    \"phone\": 343424252,\r\n\t    \"email\": \"user8@localhost.com\",\r\n\t    \"first_name\": \"user\",\r\n\t    \"last_name\": \"user\"\r\n\t}\r\n\t\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -135,7 +140,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/rental/profile/13/",
+					"raw": "http://127.0.0.1:8000/rental/profile/1/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -147,7 +152,7 @@
 					"path": [
 						"rental",
 						"profile",
-						"13",
+						"1",
 						""
 					]
 				}
@@ -196,6 +201,150 @@
 					"path": [
 						"rental",
 						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewCar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 230f52b22167a06a5b9bb1d43c1a4378dd10dc8c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/rental/cars/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"rental",
+						"cars",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListCars",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 06cbc39176a1c2299f26c5457e9f84c219a89db0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"car\": \"Jaguar\",\n\t\"seats\": \"5\",\n\t\"price_day\": \"40\",\n\t\"driver\": \"False\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/rental/cars/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"rental",
+						"cars",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Booking",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 06cbc39176a1c2299f26c5457e9f84c219a89db0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"car\": \"Jaguar\",\n\t\"seats\": \"5\",\n\t\"price_day\": \"40\",\n\t\"driver\": \"False\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/rental/booking/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"rental",
+						"booking",
 						""
 					]
 				}
