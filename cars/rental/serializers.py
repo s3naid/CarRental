@@ -23,11 +23,12 @@ class BookingSerializer(serializers.ModelSerializer):
         read_only_fields = ['user', 'cancelled','bonus']
 
     def get_bonus(self, obj: Booking):
-        bookings=Booking.objects.filter(user_id=obj.user_id).count()
-
+        bookings=Booking.objects.filter(
+                                        user_id=obj.user_id,
+                                        end_date__lt=timezone.now()
+        ).count()
+        print(bookings)
         profile = Profile.objects.get(pk=obj.user.id)
-        now = datetime.now()
-        date = datetime.strptime(self.request.data['end_date'], '%Y-%m-%d %H:%M:%S')
         profile.bonus=bookings
         profile.save()
         return (bookings)
