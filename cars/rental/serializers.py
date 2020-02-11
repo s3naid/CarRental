@@ -29,9 +29,10 @@ class BookingSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         bookings=Booking.objects.filter(
                                     car__pk=validated_data['car'].id,
-                                    start_date__gt=validated_data['start_date'],
-                                    end_date__lt=validated_data['end_date'],
+                                    start_date__gte=validated_data['start_date'],
+                                    end_date__lte=validated_data['end_date']
         )
+        print(bookings)
         if bookings:
             raise serializers.ValidationError("This car is unavaible for selected dates. Please choose different car.")
         instance = Booking.objects.create(**validated_data)
