@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from datetime import datetime
 from rest_framework import filters, viewsets
 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
@@ -27,6 +27,15 @@ class BookingViewSet(viewsets.ModelViewSet):
     serializer_class = BookingSerializer
     queryset = Booking.objects.all()
 
+    # def check_bonus(self,request):
+    #     profile=Profile.objects.get(pk=self.request.user.id)
+    #     now = datetime.now()
+    #     date = datetime.strptime(self.request.data['end_date'], '%Y-%m-%d %H:%M:%S')
+    #     print (self.request.data)
+    #     if now > date:
+    #         profile.bonus=profile.bonus+1
+    #         profile.save()
+
     def get_permissions(self):
         if self.action in ['update']:
             self.permission_classes = [IsUpdateProfile]
@@ -34,6 +43,7 @@ class BookingViewSet(viewsets.ModelViewSet):
 
 
     def perform_create(self, serializer):
+        # self.check_bonus(self.request)
         return serializer.save(user=self.request.user.profile)
 
     def get_queryset(self):

@@ -22,4 +22,4 @@ class Booking(models.Model):
     user=models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='users')
     start_date=models.DateTimeField()
     end_date=models.DateTimeField(blank=True, null=True)
-    cancelled = models.BooleanField(default=False)
+
