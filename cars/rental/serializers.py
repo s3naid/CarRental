@@ -7,8 +7,6 @@ from accounts.models import CustomUser
 from django.utils import timezone
 from datetime import datetime
 
-
-
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model=Car

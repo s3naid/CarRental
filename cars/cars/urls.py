@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('rental/', include('rental.urls')),
+    #path(r'^auth/', include('rest_framework_social_oauth2.urls')),
 ]
