@@ -54,7 +54,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     user=UserCreateSerializer()
     class Meta:
         model=Profile
-        fields='__all__'
+        fields=['phone','user','bonus']
         read_only_fields = ['user', 'bonus']
 
     #Nested serializer mora imati create metodu
@@ -62,6 +62,5 @@ class ProfileSerializer(serializers.ModelSerializer):
         user_data=validated_data.pop('user')
         user_data['password']=make_password(user_data['password'])
         user = CustomUser.objects.create(**user_data)
-        instance=Profile(user=user)
-        print(instance)
+        instance=Profile(user=user, **validated_data)
         return instance

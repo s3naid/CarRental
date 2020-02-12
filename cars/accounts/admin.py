@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserChangeForm
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
-    list_display = ('email','phone', 'email', 'first_name', 'last_name')  # Contain only fields in your `custom-user-model`
+    list_display = ('email', 'email', 'first_name', 'last_name')  # Contain only fields in your `custom-user-model`
     list_filter = ('is_staff', 'is_superuser', 'is_active')  # Contain only fields in your `custom-user-model` intended for filtering. Do not include `groups`since you do not have it
     search_fields = ('email', 'first_name', 'last_name', 'email')  # Contain only fields in your `custom-user-model` intended for searching
     ordering = ('email',)  # Contain only fields in your `custom-user-model` intended to ordering
@@ -19,10 +19,9 @@ class CustomUserAdmin(UserAdmin):
     )
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (('Personal info'), {'fields': ('first_name', 'last_name', 'phone')}),
-        (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
-                                       'groups', 'user_permissions')}),
-        (('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        (('Personal info'), {'fields': ('first_name', 'last_name')}),
+        (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions')}),
+        (('Important dates'), {'fields': ('last_login',)}),
     )
 
 
