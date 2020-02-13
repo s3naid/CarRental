@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "447d1065-82ec-4daa-8055-f5720f17212b",
+		"_postman_id": "7e51d69e-31e5-4674-a1aa-92e2c4d20052",
 		"name": "CarRental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"user\":{\r\n\t    \"password\": \"sifrasifra\",\r\n\t    \"phone\": 343424252,\r\n\t    \"email\": \"user1@localhost.com\",\r\n\t    \"first_name\": \"user\",\r\n\t    \"last_name\": \"user\"\r\n\t}\r\n\t\r\n}",
+					"raw": "{\r\n\t\"user\":{\r\n\t    \"password\": \"sifrasifra\",\r\n\t    \"email\": \"user12@localhost.com\",\r\n\t    \"first_name\": \"user\",\r\n\t    \"last_name\": \"user\"\r\n\t},\r\n\t\"phone\": 11111111\r\n\t\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
